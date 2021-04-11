@@ -26,9 +26,16 @@
                  :desc-fn (fn [_]
                             {:fx/type :stage
                              :showing true
+                             :min-height 600
+                             :min-width 300
+                             :resizable false
                              :scene {:fx/type :scene
                                      :stylesheets [(::css/url procss/style)]
                                      :root {:fx/type :v-box
                                             :style-class "root"
-                                            :children [{:fx/type elements/todo-list}
-                                                       {:fx/type elements/todo-input}]}}})))
+                                            :children [{:fx/type elements/todo-list
+                                                        :v-box/hgrow :always
+                                                        :v-box/vgrow :always}
+                                                       {:fx/type elements/todo-input
+                                                        :v-box/vgrow :always
+                                                        :v-box/hgrow :always}]}}})))
